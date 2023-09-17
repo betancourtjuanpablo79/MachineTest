@@ -1,0 +1,62 @@
+<p-toast></p-toast>
+<p-card header="Machine Test" subheader="Developed by Juan Pablo Betancourt">
+  <div class="grid">
+
+    <div class="col-2">
+      <div class="card flex justify-content-center">
+        <p-fileUpload mode="basic" chooseLabel="Choose a file (.xlsx)" name="files[]"  [url]="validateUrl" accept=".xlsx" [auto]="true" (onSelect)="onSelect($event)"></p-fileUpload>
+      </div>
+      <br>
+      <p-table [value]="fileList">
+        <ng-template pTemplate="header">
+          <tr>
+              <th>Recent Files</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-file>
+            <tr>
+                <td>{{ file }}</td>
+            </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div class="col-1">
+      <p-divider layout="vertical">
+          <b></b>
+      </p-divider>
+    </div>
+    <div class="col-9">
+      <div class="grid" *ngIf="isShowing">
+        <div class="col-6">
+          <div class="grid">
+            <div class="col-12">
+              <app-books-written-by [library]="library"></app-books-written-by>
+            </div>
+            <div class="col-12">
+              <app-authors-who-have-not-wrote [library]="library"></app-authors-who-have-not-wrote>
+            </div>
+            <div class="col-12">
+              <app-books-price [library]="library"></app-books-price>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="grid">
+            <div class="col-12">
+              <app-authors-who-wrote [library]="library"></app-authors-who-wrote>
+            </div>
+            <div class="col-12">
+              <app-authors-vs-books [library]="library"></app-authors-vs-books>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="grid" *ngIf="!isShowing">
+        <div class="col-12 justify-content-center">
+          <p>No file selected.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</p-card>

@@ -1,0 +1,26 @@
+<p-table [value]="authorsVsBooks">
+  <ng-template pTemplate="caption">
+    Books writen by author
+  </ng-template>
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Author Id</th>
+          <th>Author Name</th>
+          <th>Books</th>
+          <th>Quantity</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-author>
+      <tr>
+          <td>{{ author.id }}</td>
+          <td>{{ author.name }}</td>
+          <td>{{ author.books }}</td>
+          <td>{{ author.qty }}</td>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td [colSpan]="4">No Records</td>
+    </tr>
+  </ng-template>
+</p-table>

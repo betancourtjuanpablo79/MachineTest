@@ -1,0 +1,25 @@
+<p-table [value]="booksWrittenBy">
+  <ng-template pTemplate="caption">
+    Books written by
+    <p-dropdown [options]="library.authors" [(ngModel)]="selectedAuthor" optionLabel="name" (onChange)="selectAuthor()"></p-dropdown>
+  </ng-template>
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Price</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-book>
+      <tr>
+          <td>{{ book.id }}</td>
+          <td>{{ book.name }}</td>
+          <td>{{ book.price | currency}}</td>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td [colSpan]="3">No Records</td>
+    </tr>
+  </ng-template>
+</p-table>

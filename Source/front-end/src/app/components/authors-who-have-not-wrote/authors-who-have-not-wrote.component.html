@@ -1,0 +1,22 @@
+<p-table [value]="authorsWhoHaveNotWrote">
+  <ng-template pTemplate="caption">
+    Authors who have not wrote any books
+  </ng-template>
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Id</th>
+          <th>Name</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-author>
+      <tr>
+          <td>{{ author.id }}</td>
+          <td>{{ author.name }}</td>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td [colSpan]="2">No Records</td>
+    </tr>
+  </ng-template>
+</p-table>
